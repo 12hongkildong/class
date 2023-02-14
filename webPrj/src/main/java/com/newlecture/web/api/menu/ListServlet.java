@@ -45,17 +45,17 @@ public class ListServlet extends HttpServlet{
 	// 나 3번 메뉴 내용 수정해줘 : put 요청:    /admin/menus/3  
 	                     // 과거put: /admin/menus/3/edit
 	
-	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		// 리플렉션
-		// 어노테이션
-		String json = "{";
-		//son += "(\"id\":";"
-		for(Menu m : list)
-			json += ?;
-		
-		
-		return json;
-	}
-	
+//	@Override
+//	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+//		// 리플렉션
+//		// 어노테이션
+//		String json = "{";
+//		//son += "(\"id\":";"
+//		for(Menu m : list)
+//			json += ?;
+//		
+//		
+//		return json;
+//	}
+//	
 }
