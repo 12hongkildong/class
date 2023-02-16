@@ -18,21 +18,32 @@ public class Menu {
 	public Menu() {
 		Menu menu = new Menu();
 //		DriverManager.registerDriver(this);
-	}
+	}	
 	
+<<<<<<< HEAD
 
 	
 	public Menu(int id, String name, int price, String img, Date regDate) {
+=======
+	public Menu(int id, String name, int price, String img, Date regDate, String images) {
+>>>>>>> 15e17621fb1f0774c8b9a977c749ac00525ad410
 		super();
 		this.id = id;
 		this.name = name;
 		this.price = price;
 		this.img = img;
 		this.regDate = regDate;
+<<<<<<< HEAD
 	}
 
 
 
+=======
+		this.images = images;
+	}
+
+
+>>>>>>> 15e17621fb1f0774c8b9a977c749ac00525ad410
 	public int getId() {
 		return id;
 	}
@@ -57,6 +68,7 @@ public class Menu {
 	public void setImg(String img) {
 		this.img = img;
 	}
+<<<<<<< HEAD
 
 
 
@@ -71,30 +83,49 @@ public class Menu {
 	}
 
 
+=======
+	public Date getRegDate() {
+		return regDate;
+	}
+	public void setRegDate(Date regDate) {
+		this.regDate = regDate;
+	}
+	
+>>>>>>> 15e17621fb1f0774c8b9a977c749ac00525ad410
 
 	public String getImages() {
 		return images;
 	}
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 15e17621fb1f0774c8b9a977c749ac00525ad410
 	public void setImages(String images) {
 		this.images = images;
 	}
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 15e17621fb1f0774c8b9a977c749ac00525ad410
 	@Override
 	public String toString() {
 		return "Menu [id=" + id + ", name=" + name + ", price=" + price + ", img=" + img + ", regDate=" + regDate
 				+ ", images=" + images + "]";
 	}
 
+<<<<<<< HEAD
 
 
 
 	
 
+=======
+	
+>>>>>>> 15e17621fb1f0774c8b9a977c749ac00525ad410
 	
 	
 	

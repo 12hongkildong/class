@@ -63,10 +63,17 @@ public class ListController2 extends HttpServlet{
 				int id = rs.getInt("id");
 				String name = rs.getString("name");
 				String nicName = rs.getString("nicname");
+<<<<<<< HEAD
 				Date regDate = rs.getDate("reg_date");
 				String images = "pic1.png, pic2.png, pic3.png, pic4.png, pic5.png";
 				
 				Menu menu = new Menu(id, name, 1000, "", regDate);
+=======
+				Date regdate = rs.getDate("reg_date");
+				String images = "pic1.png,pic2.png,pic3.png,pic4.png,pic5.png";
+				
+				Menu menu = new Menu(id, name, 1000, "", regdate, images);
+>>>>>>> 15e17621fb1f0774c8b9a977c749ac00525ad410
 				menu.setImages(images);
 				
 				menus.add(menu);
@@ -90,7 +97,10 @@ public class ListController2 extends HttpServlet{
 		req.setAttribute("menus", menus);
 		
 		req.getRequestDispatcher("/WEB-INF/view/menu/list.jsp").forward(req, resp);
+<<<<<<< HEAD
 //		req.getRequestDispatcher("/menu/listview").forward(req, resp);
+=======
+>>>>>>> 15e17621fb1f0774c8b9a977c749ac00525ad410
 //		============================================
 		
 //		out.write("<!DOCTYPE html>");
