@@ -3,9 +3,14 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%
-	List<Menu> menus=(List<Menu>)request.getAttribute("menus");
+	//List<Menu> menus=(List<Menu>)request.getAttribute("menus");
+	
 %>
+
+
+
 
 <!DOCTYPE html>
 <html>
@@ -16,23 +21,33 @@
 <body>
 
 	<h1>메뉴 목록 Jasper1111</h1>
-	<table>
+	<table border="1px">
 		<tr>
 			<td>번호</td>
 			<td>이름 </td>
 			<td>가격</td>
+			<td>등록일</td>
 		</tr>
 		
 		
-		<c:forEach begin="1" end="5" step="1">
+		<c:forEach var="m" items="${menus}">
+		<fmt:formatNumber var="price" pattern="#,###" value="${m.price+1 }"/>
+		<fmt:formatDate var="regDate" pattern="yyyy-MM-dd a:mm:ss" value="${m.regDate}"/>
 		<tr>
-			<td>1</td>
-			<td>아이스아메리카노</td>
-			<td>5000원</td>
-			
+			<td>${m.id }</td>
+			<td>${m.name}</td>
+			<td>${price} 원</td>
+			<td>${regDate} </td>
+		</tr>
+		<tr>
+			<td colspan="4">
+				<c:forTokens var="img" begin="2" end="4" items="${m.images}" delims="," varStatus="st">
+					<a download href="upload/s{img}">${img}</a> <!-- 이미지가 다운로드 된다. 이 다운로드 키워드만 작성하면 -->
+					<c:if test="${!st.last}">|</c:if>
+				</c:forTokens>
+			</td>
 		</tr>
 		</c:forEach>
-	</table>
 
 
 </body>

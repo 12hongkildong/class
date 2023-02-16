@@ -8,6 +8,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import com.newlecture.web.entity.GList;
@@ -29,6 +30,7 @@ public class ListController2 extends HttpServlet{
 //		GList<Menu> menus = new GList<Menu>();
 		
 //		NList menus = new NList();
+		List<Menu> menus = new ArrayList<>();
 		
 		resp.setCharacterEncoding("UTF-8");
 		//브라우저에서 html로 읽고 UTF-8로 읽어라 하고 헤더에 넣어줌.
@@ -40,9 +42,8 @@ public class ListController2 extends HttpServlet{
 //		Menu[] list = service.getList();
 //		int count = service.count();
 
-		String query = "";
+		String query = "";  //결과물 얻기 위해
 		String sql = String.format("select * from member where nicname like '%s'", "%"+query+"%") ;
-		List<Menu> menus = new ArrayList<>();
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			String url = "jdbc:oracle:thin:@oracle.newlecture.com:1521/xepdb1";
@@ -62,8 +63,11 @@ public class ListController2 extends HttpServlet{
 				int id = rs.getInt("id");
 				String name = rs.getString("name");
 				String nicName = rs.getString("nicname");
+				Date regDate = rs.getDate("reg_date");
+				String images = "pic1.png, pic2.png, pic3.png, pic4.png, pic5.png";
 				
-				Menu menu = new Menu(id, name, 1000, "");
+				Menu menu = new Menu(id, name, 1000, "", regDate);
+				menu.setImages(images);
 				
 				menus.add(menu);
 				
@@ -86,6 +90,7 @@ public class ListController2 extends HttpServlet{
 		req.setAttribute("menus", menus);
 		
 		req.getRequestDispatcher("/WEB-INF/view/menu/list.jsp").forward(req, resp);
+//		req.getRequestDispatcher("/menu/listview").forward(req, resp);
 //		============================================
 		
 //		out.write("<!DOCTYPE html>");
